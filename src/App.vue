@@ -1,10 +1,14 @@
 <template>
   <v-app>
+    <!-- drawer menu -->
     <v-navigation-drawer app v-model="drawer" clipped>
       <v-container>
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title class="title grey--text text--darken-2">メニュー</v-list-item-title>
+            <v-btn color="white">
+              <v-icon color="black"><mdi-close></mdi-close></v-icon>
+            </v-btn>
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
@@ -20,21 +24,28 @@
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
+    <!-- drawer menu -->
 
-    <v-app-bar color="light-blue accent-2" dark app clipped-left>
+    <!-- app bar -->
+    <v-app-bar color="light-blue accent-2" dark app clipped-left fixed>
       <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="text-h4">パワフェス経験値計算 〜Pawafes point Calculator 2021〜</v-toolbar-title>
+      <v-toolbar-title  class="text-subtitle-1">パワフェス経験値計算 <br>〜Pawafes point Calculator 2021〜</v-toolbar-title>
       <v-spacer></v-spacer>
-      <!-- <v-btn outlined><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></v-btn> -->
     </v-app-bar>
+    <!-- app bar -->
 
+    <!-- main contents -->
     <v-main>
       <router-view />
     </v-main>
+    <!-- main contents -->
 
+    <!-- footer -->
     <v-footer color="light-blue accent-2" dark app>
       &copy;パワフェス計算ツール
     </v-footer>
+    <!-- footer -->
+
   </v-app>
 </template>
 
@@ -43,7 +54,7 @@
 export default {
 
   data: () => ({
-    drawer: null,
+    drawer: false,
     nav_lists: [
       {
         name: 'ホーム',
