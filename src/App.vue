@@ -5,10 +5,16 @@
       <v-container>
         <v-list-item>
           <v-list-item-content>
-            <v-list-item-title class="title grey--text text--darken-2">メニュー</v-list-item-title>
-            <v-btn color="white">
-              <v-icon color="black"><mdi-close></mdi-close></v-icon>
-            </v-btn>
+            <v-row>
+              <v-col cols="6">
+                <v-list-item-title class="title grey--text text--darken-2">menu</v-list-item-title>
+              </v-col>
+              <v-col cols="6">
+                <v-btn icon text @click="onClose">
+                  <v-icon >mdi-close</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-list-item-content>
         </v-list-item>
         <v-divider></v-divider>
@@ -78,5 +84,10 @@ export default {
       }
     ]
   }),
+  methods: {
+    onClose() {
+      this.$set(this,'drawer',false);
+    },
+  },
 };
 </script>
