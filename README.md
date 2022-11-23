@@ -1,33 +1,29 @@
-<<<<<<< HEAD
-# app
+### My Portfolio site Project
 
-## Project setup
-```
-npm install
-```
+## vuejs 最初にやる手順
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+~~~bash
+    npm install
+~~~
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## vuejs ビルド手順
 
-### Run your tests
-```
-npm run test
-```
+~~~bash
+    npm run build
+~~~
 
-### Lints and fixes files
-```
-npm run lint
-```
+## vuejs 実行手順
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-# pawafes_calc_tool
->>>>>>> origin/main
+~~~bash
+    npm run serve
+~~~
+
+## デザインイメージ
+
+- スマホ版
+
+![picture 8](images/PXL_20221123_084116224.MP_20221123.jpg)  
+
+- PC/タブレット版
+
+![picture 9](images/PXL_20221123_084106739.MP_20221123.jpg)  
