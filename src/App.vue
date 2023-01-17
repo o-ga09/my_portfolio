@@ -1,64 +1,37 @@
 <template>
-  <v-app>
+  <div id="app" class="container">
     <!-- drawer menu -->
-    <v-navigation-drawer app v-model="drawer" clipped>
-      <v-container>
-        <v-list-item>
-          <v-list-item-content>
-            <v-row>
-              <v-col cols="6">
-                <v-list-item-title class="title grey--text text--darken-2">menu</v-list-item-title>
-              </v-col>
-              <v-col cols="6">
-                <v-btn icon text @click="onClose">
-                  <v-icon >mdi-close</v-icon>
-                </v-btn>
-              </v-col>
-            </v-row>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider></v-divider>
-      </v-container>
-      <v-list nav dense>
-        <v-list-item-group>
-          <v-list-item v-for="nav_list in nav_lists" :key="nav_list.name" :to="nav_list.link">
-            <v-list-item-icon>
-              <v-icon>{{ nav_list.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
+
     <!-- drawer menu -->
 
     <!-- app bar -->
-    <v-app-bar color="light-blue accent-2" dark app clipped-left fixed>
-      <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title  class="text-subtitle-1">パワフェス経験値計算 <br>〜Pawafes point Calculator 2021〜</v-toolbar-title>
-      <v-spacer></v-spacer>
-    </v-app-bar>
     <!-- app bar -->
 
     <!-- main contents -->
-    <v-main>
-      <router-view />
-    </v-main>
+    <header><Header /></header>
+    <main><router-view /></main>
+    <footer><Footer /></footer>
+    <!-- <Header />
+    <router-view />
+    <Footer /> -->
     <!-- main contents -->
 
     <!-- footer -->
-    <v-footer color="light-blue accent-2" dark app>
-      &copy;パワフェス計算ツール
-    </v-footer>
     <!-- footer -->
 
-  </v-app>
+  </div>
 </template>
 
 <script>
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 export default {
-
+  name: "app",
+  components: {
+    Header: Header,
+    Footer: Footer
+  },
   data: () => ({
     drawer: false,
     nav_lists: [
@@ -91,3 +64,20 @@ export default {
   },
 };
 </script>
+
+<style>
+  .container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  #app {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+</style>

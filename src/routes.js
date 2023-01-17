@@ -9,7 +9,7 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      path: '/index',
       name: 'index',
       component: Index
     },
@@ -27,6 +27,11 @@ export default new Router({
       path: '/feedback',
       name: 'feedback',
       component: () => import('./pages/Feedback.vue')
+    },
+    {
+      path: '/',
+      name: 'self-introduction',
+      component: () => import('./pages/self-introduction.vue')
     }
   ]
 })
