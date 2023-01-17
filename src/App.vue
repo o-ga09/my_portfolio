@@ -1,49 +1,39 @@
 <template>
-  <v-app>
-    <v-navigation-drawer app v-model="drawer" clipped>
-      <v-container>
-        <v-list-item>
-          <v-list-item-content>
-            <v-list-item-title class="title grey--text text--darken-2">メニュー</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-        <v-divider></v-divider>
-      </v-container>
-      <v-list nav dense>
-        <v-list-item-group>
-          <v-list-item v-for="nav_list in nav_lists" :key="nav_list.name" :to="nav_list.link">
-            <v-list-item-icon>
-              <v-icon>{{ nav_list.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>{{ nav_list.name }}</v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
-      </v-list>
-    </v-navigation-drawer>
+  <div id="app" class="container">
+    <!-- drawer menu -->
 
-    <v-app-bar color="light-blue accent-2" dark app clipped-left>
-      <v-app-bar-nav-icon @click="drawer=!drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title class="text-h4">パワフェス経験値計算 〜Pawafes point Calculator 2021〜</v-toolbar-title>
-      <v-spacer></v-spacer>
-      <!-- <v-btn outlined><a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></v-btn> -->
-    </v-app-bar>
+    <!-- drawer menu -->
 
-    <v-main>
-      <router-view />
-    </v-main>
+    <!-- app bar -->
+    <!-- app bar -->
 
-    <v-footer color="light-blue accent-2" dark app>
-      &copy;パワフェス計算ツール
-    </v-footer>
-  </v-app>
+    <!-- main contents -->
+    <header><Header /></header>
+    <main><router-view /></main>
+    <footer><Footer /></footer>
+    <!-- <Header />
+    <router-view />
+    <Footer /> -->
+    <!-- main contents -->
+
+    <!-- footer -->
+    <!-- footer -->
+
+  </div>
 </template>
 
 <script>
+import Header from "./components/Header"
+import Footer from "./components/Footer"
 
 export default {
-
+  name: "app",
+  components: {
+    Header: Header,
+    Footer: Footer
+  },
   data: () => ({
-    drawer: null,
+    drawer: false,
     nav_lists: [
       {
         name: 'ホーム',
@@ -67,5 +57,27 @@ export default {
       }
     ]
   }),
+  methods: {
+    onClose() {
+      this.$set(this,'drawer',false);
+    },
+  },
 };
 </script>
+
+<style>
+  .container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 100%;
+    min-height: 100vh;
+    min-width: 100%;
+  }
+
+  #app {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+  }
+</style>
