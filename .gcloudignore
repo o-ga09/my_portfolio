@@ -13,3 +13,4 @@ README.md
 tsconfig.json
 tslint.json
 yarn.lock
+.git/
