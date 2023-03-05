@@ -16,6 +16,9 @@ export default {
     Header: Header,
     Footer: Footer
   },
+  metaInfo : {
+    title : 't09blog',
+  },
   data: () => ({
     drawer: false,
     nav_lists: [
