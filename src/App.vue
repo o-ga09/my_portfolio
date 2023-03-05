@@ -1,24 +1,8 @@
 <template>
   <div id="app" class="container">
-    <!-- drawer menu -->
-
-    <!-- drawer menu -->
-
-    <!-- app bar -->
-    <!-- app bar -->
-
-    <!-- main contents -->
     <header><Header /></header>
     <main><router-view /></main>
     <footer><Footer /></footer>
-    <!-- <Header />
-    <router-view />
-    <Footer /> -->
-    <!-- main contents -->
-
-    <!-- footer -->
-    <!-- footer -->
-
   </div>
 </template>
 
