@@ -6,9 +6,14 @@ import axios from 'axios'
 import './index.css'  //tailwind 用に追記
 import '@mdi/font/css/materialdesignicons.css' //material UI 用
 import VueMeta from 'vue-meta'
+import VueGtag from 'vue-gtag'
 
 Vue.config.productionTip = false
-Vue.use(VueMeta)
+Vue.use(
+  VueGtag,
+  {config : {id : "G-JV9PJQFSRV"},},
+  router,
+  VueMeta)
 new Vue({
   axios,
   router,

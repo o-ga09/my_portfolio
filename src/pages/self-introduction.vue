@@ -9,11 +9,76 @@
         <br>
         <p class="flex justify-center pt-2 text-2xl">I have FE(基本情報技術者)</p>
         <br>
+        <button @click="addIcon">
+        <svg-icon class="w-6 h-6 text-red-500" type="mdi" :path="heartIcon"></svg-icon>
+        </button>
+        
+        <div v-for="index in count" :key="index">
+        <svg-icon class="w-6 h-6 text-red-500" type="mdi" :path="heartIcon"></svg-icon>
+        </div>
     </div>
 </template>
 
 <script>
+import SvgIcon from '@jamescoyle/vue-icon'
+import { mdiHeart } from '@mdi/js'
 export default {
-
+    components: {SvgIcon},
+    name: "Home",
+    data() {
+        return {
+            heartIcon: mdiHeart,
+            heartColor: '#e74c3c',
+            heartContainer: null,
+            hearts: [],
+            count:0
+        }
+    },
+    mounted() {
+        this.heartContainer = this.$refs.heartContainer;
+    },
+    methods: {
+        addIcon() {
+            this.count++
+        },
+        showHearts() {
+            let newHeart = document.createElement('div');
+            newHeart.classList.add('heart');
+            newHeart.style.color = this.heartColor;
+            newHeart.style.position = 'absolute';
+            newHeart.style.opacity = 1;
+            newHeart.style.fontSize = '2rem';
+            newHeart.style.top = '50%';
+            newHeart.style.left = '50%';
+            newHeart.innerHTML = this.heartIcon;
+            this.hearts.push(newHeart);
+            this.heartContainer.appendChild(newHeart);
+            setTimeout(() => {
+                newHeart.style.opacity = 0;
+                newHeart.style.top = '-10%';
+            }, 1000);
+            requestAnimationFrame(() => {
+                newHeart.style.transform = `translate(-50%, -${window.innerHeight}px)`;
+            });
+        }
+    }
 }
 </script>
+
+<style scoped>
+.heart {
+  animation: heart 1s ease-in-out;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+</style>
