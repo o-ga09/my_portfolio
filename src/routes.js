@@ -18,17 +18,17 @@ export default new Router({
     },
     {
       path: '/Skills',
-      name: 'self-introduction',
+      name: 'Skills',
       component: Skill
     },
     {
       path: '/Portfolio',
-      name: 'self-introduction',
+      name: 'Portfolio',
       component: Portfolio
     },
         {
       path: '/Blog',
-      name: 'self-introduction',
+      name: 'Blog',
       component: Blog
     }
   ]
