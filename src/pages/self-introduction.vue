@@ -16,12 +16,18 @@
         <div v-for="index in count" :key="index">
         <svg-icon class="w-6 h-6 text-red-500" type="mdi" :path="heartIcon"></svg-icon>
         </div>
+
+        <div class="garden" ref="garden">
+            <div class="ball" ref="ball"></div>
+            <div class="output" ref="output"></div>
+        </div>
     </div>
 </template>
 
 <script>
 import SvgIcon from '@jamescoyle/vue-icon'
 import { mdiHeart } from '@mdi/js'
+
 export default {
     components: {SvgIcon},
     name: "Home",
@@ -35,6 +41,41 @@ export default {
         }
     },
     mounted() {
+        const ball = this.$refs.ball;
+        const garden = this.$refs.garden;
+        const output = this.$refs.output;
+
+        const maxX = garden.clientWidth - ball.clientWidth;
+        const maxY = garden.clientHeight - ball.clientHeight;
+
+        function handleOrientation(event) {
+            let x = event.beta; // -180 から 180 の範囲で角度を示す
+            let y = event.gamma; // -90 から 90 の範囲で角度を示す
+            console.log(x,y);
+
+            output.textContent = `beta : ${x}\n`;
+            output.textContent += `gamma: ${y}\n`;
+            // 端末をひっくり返したくはないため、
+            // x の値を -90 から 90 の範囲に制限する
+            if (x > 90) {
+                x = 90;
+            }
+            if (x < -90) {
+                x = -90;
+            }
+
+            // 計算を容易にするため、x および y の値の範囲を
+            // 0 から 180 に変換する
+            x += 90;
+            y += 90;
+
+            // 10 は、ボールのサイズの半分である。
+            // これにより、配置場所をボールの中心に合わせる
+            ball.style.top = `${(maxY * y) / 180 - 10}px`;
+            ball.style.left = `${(maxX * x) / 180 - 10}px`;
+
+        }
+        window.addEventListener("deviceorientation", handleOrientation);
         this.heartContainer = this.$refs.heartContainer;
     },
     methods: {
@@ -80,5 +121,23 @@ export default {
   100% {
     transform: scale(1);
   }
+}
+
+.garden {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #ccc;
+  border-radius: 10px;
+}
+
+.ball {
+  position: absolute;
+  top: 90px;
+  left: 90px;
+  width: 20px;
+  height: 20px;
+  background: green;
+  border-radius: 100%;
 }
 </style>
