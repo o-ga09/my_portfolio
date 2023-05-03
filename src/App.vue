@@ -1,68 +1,22 @@
 <template>
-  <div id="app" class="container">
-    <header><Header /></header>
-    <main><router-view /></main>
-    <footer><Footer /></footer>
+  <div id="app">
+    <router-view />
   </div>
 </template>
 
 <script>
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-
 export default {
   name: "app",
-  components: {
-    Header: Header,
-    Footer: Footer
-  },
   metaInfo : {
     title : 't09blog',
-  },
-  data: () => ({
-    drawer: false,
-    nav_lists: [
-      {
-        name: 'ホーム',
-        icon: 'mdi-home',
-        link: '/'
-      },
-      {
-        name: 'お知らせ',
-        icon: 'mdi-alert-circle',
-        link: '/announce'
-      },
-      {
-        name: 'プライバシーポリシー',
-        icon: 'mdi-card-text',
-        link: '/policy'
-      },
-      {
-        name: 'フィードバックを送信',
-        icon: 'mdi-message-alert',
-        link: '/feedback'
-      }
-    ]
-  }),
-  methods: {
-    onClose() {
-      this.$set(this,'drawer',false);
-    },
-  },
+  }
 };
 </script>
 
 <style>
-  .container {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 100%;
-    min-height: 100vh;
-    min-width: 100%;
-  }
-
   #app {
     width: 100%;
+    height: 100%;
     overflow: hidden;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
