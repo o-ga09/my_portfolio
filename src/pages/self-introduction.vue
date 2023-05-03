@@ -11,16 +11,16 @@
         <p class="flex justify-center pt-2 text-base">I have FE(基本情報技術者)</p>
         <br>
 
-        <div class="flex justify-center items-center pt-5 pb-5 text-4xl">
+        <div class="flex justify-center items-center pb-5 text-4xl">
           <button @click="addHeart">
-            <img src="../assets/images/gopher.svg" alt="gopher icon" class="w-12 h-12">
+            <img src="../assets/images/Gopher.png" alt="gopher icon" class="w-12 h-12">
           </button>
         </div>
         <div class="icon-container" v-for="(heart, index) in hearts" :key="index">
-            <img src="../assets/images/gopher.svg" alt="gopher icon" class="w-12 h-12">
+            <img src="../assets/images/Gopher.png" alt="gopher icon" class="w-12 h-12">
         </div>
 
-        <Footer />
+        <Footer class="absolute bottom-0" />
     </div>
 </template>
 

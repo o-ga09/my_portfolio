@@ -49,7 +49,7 @@
       </div>
 
 
-      <Footer />
+      <Footer class="bottom-0"/>
     </div>
 </template>
 
