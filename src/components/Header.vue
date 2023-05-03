@@ -1,13 +1,12 @@
 <template>
-    <header class="text-gray-600 body-font">
-      <div class="header-container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a href="/" class="mr-5 hover:text-gray-900">Home</a>
-          <a href="https://sites.google.com/view/profile202303/%E3%83%9B%E3%83%BC%E3%83%A0" class="mr-5 hover:text-gray-900">Profile</a>
-          <a href="https://sites.google.com/view/skills-202303/%E3%83%9B%E3%83%BC%E3%83%A0" class="mr-5 hover:text-gray-900">Skills</a>
-          <a href="https://sites.google.com/view/vlogs202303/%E3%83%9B%E3%83%BC%E3%83%A0" class="mr-5 hover:text-gray-900">Blog</a>
+    <header class="h-1/5 bg-yellow-200">
+        <h1 class="flex mb-5 font-bold text-2xl md:text-4xl justify-center">o-ga's blog</h1>
+        <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center md:justify-end">
+          <a href="/" class="mr-5 hover:text-red-500">Home</a>
+          <a href="/Portfolio" class="mr-5 hover:text-red-500">Profile</a>
+          <a href="/Skills" class="mr-5 hover:text-red-500">Skills</a>
+          <a href="/Blog" class="mr-5 hover:text-red-500">Blog</a>
         </nav>
-      </div>
     </header>
 </template>
 
