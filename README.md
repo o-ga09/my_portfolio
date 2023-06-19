@@ -1,5 +1,7 @@
 ### My Portfolio site Project
 
+<img src="https://github.com/o-ga09/my_portfolio/assets/54522966/8d593c5b-e701-4473-9d4f-e28b63995b15">
+
 ## vuejs 最初にやる手順
 
 ~~~bash
